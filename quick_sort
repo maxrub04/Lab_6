@@ -1,0 +1,12 @@
+def quick_sort(s):
+    if len(s)<=1:
+        return s
+    elem = s[0] #вибираємо елеменет
+    left = list(filter(lambda x: x<elem, s))#фільтр
+    center = [i for i in s if i==elem]
+    right = list(filter(lambda x: x>elem, s))#фільтр
+
+    return quick_sort(left) + center + quick_sort(right)#рекурсія
+
+listof = input('Enter the list of numbers: ').split()
+print(*quick_sort(listof))
